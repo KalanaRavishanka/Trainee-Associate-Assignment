@@ -1,0 +1,30 @@
+.login {
+  max-width: 500px;
+  
+  margin: auto;
+}
+
+.form {
+  border: 1px solid black;
+  border-radius:10px;
+  margin-top: 100px;
+  align-items: center;
+  padding: 50px;
+}
+
+.welcome {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  margin-top: 100px;
+  padding: 50px;
+  line-height: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.home{
+    margin: auto;
+    max-width: 800px;
+    margin-top: 100px;
+}
