@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 export default class Login extends Component {
-
+    // get initial data 
     constructor() {
         super();
         this.state = {
@@ -20,17 +20,19 @@ export default class Login extends Component {
     }
     // function when click the login button
     login(e) {
-        e.preventDefault();
+        // to prevent the autoreload
+        e.preventDefault(); 
+        // get data as object
         const obj = {
             username: this.state.username,
             password: this.state.password
         };
-
+        // passing data from the frontend to backend using axios
         axios.post('http://localhost/Omobio-Test/Trainee-Associate-Assignment/bizlogic/Index.php', obj)
         .then(()=>{
-            this.setState({ redirect: true});
+            this.setState({ redirect: true}); // when get the right username and the password redirect state to true to redirect to the home
         }).catch(()=>{
-            alert("Incorrect Username Or password");
+            alert("Incorrect Username Or password"); // get window aleat when we enter an wrong password
             this.setState({redirect: false});
 
         });
@@ -38,9 +40,11 @@ export default class Login extends Component {
     }
 
     render() {
+        // from here we check the redirect state is true then we can render redirect to the home 
         if(this.state.redirect){
             return (<Redirect to={'/home'} />)
         }
+        // this is the ui creation of the login
         return (
             <div>
                 <div className="login">

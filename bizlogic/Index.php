@@ -1,21 +1,23 @@
 <?php
-
+// header files
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");
 header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+// import the connect files
 require 'connect.php';
 
 $postdata = file_get_contents('php://input');
 
 if (isset($postdata) && !empty($postdata)) {
+    // decode the json files
     $request = json_decode($postdata);
     // print_r($request);
     $username = $request->username;
-    $password = md5($request->password);
-
+    $password = md5($request->password); // get the hashes password
+    // query to get the user
     $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
 
     if ($result = mysqli_query($con, $sql)) {

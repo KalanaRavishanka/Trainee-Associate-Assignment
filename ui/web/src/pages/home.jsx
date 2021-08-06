@@ -9,7 +9,7 @@ export default class Home extends Component {
         super(props);
         this.state = { users: [] };
     }
-
+    // get data from the backend
     componentDidMount() {
         axios.get('http://localhost/Omobio-Test/Trainee-Associate-Assignment/bizlogic/view.php')
             .then(response => {
@@ -34,6 +34,7 @@ export default class Home extends Component {
                         </tr>
                     </thead>
                     <tbody>
+                        
                         {this.state.users.map((result) => {
                             return (
                                 <tr>

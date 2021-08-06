@@ -8,7 +8,6 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 require 'connect.php';
 
-// $users = [];
 
 $sql = "SELECT id, name, username, email FROM user";
 
@@ -16,10 +15,7 @@ $users = array();
 
 if($result = mysqli_query($con, $sql)){
     while($row = mysqli_fetch_assoc($result)){
-        // $users['id'] = $row['id'];
-        // $users['name'] = $row['name'];
-        // $users['username'] = $row['username'];
-        // $users['email'] = $row['email'];
+        // get the users as an array to pass to the front end
         $users[] = $row;
     }
 
